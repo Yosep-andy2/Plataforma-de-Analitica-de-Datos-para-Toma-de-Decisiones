@@ -1,0 +1,56 @@
+# ============================================
+# DATA - Análisis y ETL
+# ============================================
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.3
+scipy==1.11.4
+
+# Data Visualization
+matplotlib==3.8.2
+seaborn==0.13.1
+plotly==5.18.0
+
+# Jupyter
+jupyter==1.0.0
+jupyterlab==4.0.10
+ipykernel==6.28.0
+ipywidgets==8.1.1
+
+# ETL & Workflow
+apache-airflow==2.8.0
+prefect==2.14.13
+
+# Database Connectors
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+pymongo==4.6.1
+redis==5.0.1
+
+# File Formats
+openpyxl==3.1.2
+xlrd==2.0.1
+pyarrow==14.0.2
+fastparquet==2023.10.1
+
+# Machine Learning (Básico)
+scikit-learn==1.4.0
+statsmodels==0.14.1
+
+# Data Quality
+great-expectations==0.18.8
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
+python-dateutil==2.8.2
+
+# Testing
+pytest==7.4.4
+pytest-cov==4.1.0
+
+# Code Quality
+black==23.12.1
+flake8==7.0.0
+isort==5.13.2
