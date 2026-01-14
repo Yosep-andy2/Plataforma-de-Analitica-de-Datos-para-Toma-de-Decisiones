@@ -5,5 +5,6 @@ Contains business logic services.
 """
 
 from .user_service import UserService
+from .role_service import RoleService
 
-__all__ = ["UserService"]
+__all__ = ["UserService", "RoleService"]

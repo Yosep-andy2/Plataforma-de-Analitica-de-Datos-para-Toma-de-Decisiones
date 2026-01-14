@@ -52,7 +52,20 @@ alembic revision --autogenerate -m "Initial migration: users and roles tables"
 alembic upgrade head
 ```
 
-## Paso 5: Ejecutar Servidor
+## Paso 5: Poblar Base de Datos (Seed Data)
+
+```bash
+# Crear roles por defecto y usuario admin
+python scripts/seed_data.py
+```
+
+Esto creará:
+- 4 roles: Administrador, Analista, Consultor, Ejecutivo
+- Usuario admin: admin@analytics.com / admin123
+
+⚠️ **Importante:** Cambia la contraseña del admin después del primer login.
+
+## Paso 6: Ejecutar Servidor
 
 ```bash
 uvicorn main:app --reload
@@ -62,3 +75,32 @@ El servidor estará disponible en:
 - API: http://localhost:8000
 - Documentación: http://localhost:8000/docs
 - Health Check: http://localhost:8000/health
+
+## 🧪 Probar la API
+
+### 1. Registrar un nuevo usuario
+
+```bash
+curl -X POST http://localhost:8000/api/v1/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "test@example.com",
+    "password": "test12345",
+    "name": "Test User"
+  }'
+```
+
+### 2. Login
+
+```bash
+curl -X POST http://localhost:8000/api/v1/auth/login \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=admin@analytics.com&password=admin123"
+```
+
+### 3. Obtener información del usuario actual
+
+```bash
+curl -X GET http://localhost:8000/api/v1/auth/me \
+  -H "Authorization: Bearer <tu-access-token>"
+```
